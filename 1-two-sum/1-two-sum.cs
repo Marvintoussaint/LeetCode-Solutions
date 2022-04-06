@@ -15,3 +15,4 @@ public class Solution {
         throw new Exception("Not found");
     }
 }
+
