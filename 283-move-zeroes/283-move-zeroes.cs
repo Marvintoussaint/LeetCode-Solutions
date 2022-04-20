@@ -1,8 +1,11 @@
 public class Solution {
     public void MoveZeroes(int[] nums) {
-       // base
+        
+        // base case
+        
         int len = nums.Length;
-        if(len < 2)
+        
+        if( len < 2)
         {
             return;
         }
@@ -11,10 +14,9 @@ public class Solution {
         int left = 0;
         int right = 1;
         
-        // move zeroes to back
-        while(right < len)
+        while ( right < len)
         {
-            if(nums[left] != 0)
+            if (nums[left] != 0)
             {
                 left++;
                 right++;
