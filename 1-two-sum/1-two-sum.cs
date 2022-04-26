@@ -2,6 +2,11 @@ public class Solution {
     public int[] TwoSum(int[] nums, int target) {
         
     int len = nums.Length;
+        
+        if(len < 2)
+        {
+            return null;
+        }
     
         for(int i = 0; i < len -1 ; i++)
         {
