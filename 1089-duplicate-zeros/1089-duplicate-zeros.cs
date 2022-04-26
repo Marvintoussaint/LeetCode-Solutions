@@ -16,8 +16,6 @@ public class Solution {
         int first = queue.Dequeue();
         arr[i] = first;
         }
-        
-
-        
+                
     }
 }
