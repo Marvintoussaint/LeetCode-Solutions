@@ -1,20 +1,20 @@
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
         
-        Dictionary<int,int> hashtable = new Dictionary<int,int>();
-        
-        for (int i = 0; i < nums.Length; i++)
+    int len = nums.Length;
+    
+        for(int i = 0; i < len -1 ; i++)
         {
-            int complement = target - nums[i];
-            if(hashtable.ContainsKey(complement))
+            for(int j = i +1; j < len ; j++)
             {
-                return new int[] {hashtable[complement],i};
-            }else{
-                hashtable[nums[i]] = i;
+                int sum = nums[i] + nums[j];
+                
+                if(sum == target)
+                {
+                    return new int [] {i,j};
+                }
             }
         }
-        throw new Exception("Not found");
+        return new int [] {-1,-1};
+    }
 }
-    
-}
-
