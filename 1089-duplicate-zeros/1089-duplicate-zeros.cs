@@ -1,17 +1,23 @@
 public class Solution {
     public void DuplicateZeros(int[] arr) {
         
-       
-    for(int i = 0; i < arr.Length; i++)
-    {
-        if(arr[i] == 0)
+        var queue = new Queue<int>();
+        
+        for(int i = 0; i < arr.Length; i++)
         {
-            for(int j = arr.Length -2; j >= i; j--)
+            if(arr[i] == 0)
             {
-                arr[j+1] = arr[j];
+                queue.Enqueue(0);
+                queue.Enqueue(0);
+            }else{
+                queue.Enqueue(arr[i]);
             }
-            i++;
+            
+        int first = queue.Dequeue();
+        arr[i] = first;
         }
+        
+
+        
     }
-        }  
-    }
+}
