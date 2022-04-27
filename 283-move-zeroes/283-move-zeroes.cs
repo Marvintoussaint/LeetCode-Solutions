@@ -1,31 +1,23 @@
 public class Solution {
     public void MoveZeroes(int[] nums) {
         
-        // base case 
+        int left_pointer = 0;
+        int right_pointer = 1;
         
-        int len = nums.Length;
-        
-        if(len < 2)
+        while(right_pointer < nums.Length)
         {
-            return;
-        }
-        
-        int left = 0;
-        int right = 1;
-        
-        while (right < len)
-        {
-            if(nums[left] != 0)
+            if(nums[left_pointer] != 0)
             {
-                left ++;
-                right ++;
-            }else if (nums[right] == 0)
+                left_pointer++;
+                right_pointer++;
+            }else if (nums[right_pointer] == 0)
             {
-                right++;
-            }else{
-                int temp = nums[right];
-                nums[right] = nums[left];
-                nums[left] = temp;
+                right_pointer++;
+            }else
+            {
+                int temp = nums[right_pointer];
+                nums[right_pointer] = nums[left_pointer];
+                nums[left_pointer] = temp;
             }
         }
         
