@@ -1,25 +1,20 @@
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
         
-    int len = nums.Length;
         
-        if(len < 2)
-        {
-            return null;
-        }
-    
+        int len = nums.Length;
+        
         for(int i = 0; i < len -1 ; i++)
         {
-            for(int j = i +1; j < len ; j++)
+            for(int j = i + 1; j < len ; j++)
             {
-                int sum = nums[i] + nums[j];
-                
-                if(sum == target)
+                if( nums[i] + nums[j] == target)
                 {
-                    return new int [] {i,j};
+                    return new int[] {i,j};
                 }
             }
         }
-        return new int [] {-1,-1};
+        
+        return new int[] {-1,-1};
     }
 }
