@@ -1,45 +1,16 @@
 public class Solution {
-    public int[] TwoSum(int[] arr, int target) {
+    public int[] TwoSum(int[] nums, int target) {
     
-            int [] ans = new int[2];
-            int [] copy  = new int [arr.Length];
-            arr.CopyTo(copy,0);
-            Array.Sort(copy);
+        var dic = new Dictionary<int, int>();
 
-            int left = 0;
-            int right =  arr.Length -1;
-
-            while(left < right)
+            for (int i = 0; i < nums.Length; i++)
             {
-                int sum = copy[left] + copy[right];
-
-                if(sum == target)
-                {
-                    break;
-                } else if (sum < target)
-                {
-                    left ++;
-                }else{
-                    right --;
-                }
+                if (dic.ContainsKey(nums[i]))
+                    return new int[] { dic[nums[i]], i };
+                else
+                    dic[target - nums[i]] = i;
             }
 
-            for (var i = 0; i < arr.Length; i++)
-            {
-                if (arr[i] == copy[left] )
-                {
-                    ans[0] = i;
-                }
-            }
-
-            for (var i = arr.Length -1; i >= 0; i--)
-            {
-                if (arr[i] == copy[right])
-                {
-                    ans[1] = i;
-                }
-            }
-
-            return ans;
+            return new int[] { };
+        }
     }
-}
