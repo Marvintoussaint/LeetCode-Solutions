@@ -1,20 +1,45 @@
 public class Solution {
-    public int[] TwoSum(int[] nums, int target) {
-        
-        
-        int len = nums.Length;
-        
-        for(int i = 0; i < len -1 ; i++)
-        {
-            for(int j = i + 1; j < len ; j++)
+    public int[] TwoSum(int[] arr, int target) {
+    
+            int [] ans = new int[2];
+            int [] copy  = new int [arr.Length];
+            arr.CopyTo(copy,0);
+            Array.Sort(copy);
+
+            int left = 0;
+            int right =  arr.Length -1;
+
+            while(left < right)
             {
-                if( nums[i] + nums[j] == target)
+                int sum = copy[left] + copy[right];
+
+                if(sum == target)
                 {
-                    return new int[] {i,j};
+                    break;
+                } else if (sum < target)
+                {
+                    left ++;
+                }else{
+                    right --;
                 }
             }
-        }
-        
-        return new int[] {-1,-1};
+
+            for (var i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == copy[left] )
+                {
+                    ans[0] = i;
+                }
+            }
+
+            for (var i = arr.Length -1; i >= 0; i--)
+            {
+                if (arr[i] == copy[right])
+                {
+                    ans[1] = i;
+                }
+            }
+
+            return ans;
     }
 }
