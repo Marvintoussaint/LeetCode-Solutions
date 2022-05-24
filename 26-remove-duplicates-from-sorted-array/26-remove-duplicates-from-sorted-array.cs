@@ -6,9 +6,7 @@ public class Solution {
         
         int right = 1;
         
-        int len = nums.Length;
-        
-        while(right < len)
+        while(right < nums.Length)
         {
             if(nums[left] == nums[right])
             {
@@ -16,11 +14,10 @@ public class Solution {
             }else
             {
                 left++;
-                
                 nums[left] = nums[right];
             }
-            
         }
-                    return left + 1;
+        
+        return left + 1;
     }
 }
