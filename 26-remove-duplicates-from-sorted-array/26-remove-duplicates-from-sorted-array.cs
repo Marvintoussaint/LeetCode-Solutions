@@ -1,23 +1,25 @@
 public class Solution {
     public int RemoveDuplicates(int[] nums) {
         
+        int i = 0;
         
-        int left = 0;
+        int j = 1;
         
-        int right = 1;
+        int len = nums.Length;
         
-        while(right < nums.Length)
+        while (j < len )
         {
-            if(nums[left] == nums[right])
+            if(nums[j] == nums[i])
             {
-                right++;
-            }else
+                j++;
+            }else 
             {
-                left++;
-                nums[left] = nums[right];
+                i++;
+                nums[i] = nums[j];
+                
             }
         }
         
-        return left + 1;
+        return i + 1;
     }
 }
