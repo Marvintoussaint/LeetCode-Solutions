@@ -1,23 +1,27 @@
 public class Solution {
-    public int[] TwoSum(int[] numbers, int target) {
+    public int[] TwoSum(int[] nums, int target) {
         
-        // define pointer
-        int L = 0, len = numbers.Length, R = len - 1;
+        int len = nums.Length;
         
-        // two pointers
-        while(L < R)
+        int left = 0;
+        
+        int right = len - 1;
+        
+        while(left < right)
         {
-            int sum = numbers[L] + numbers[R];
+            int sum = nums[left] + nums[right];
+            
             if(sum == target)
             {
-                return new int [] {L + 1, R + 1};
-            }else if(sum < target)
+                return new int[] {left +1, right + 1};
+            }else if (sum > target)
             {
-                L++;
+                right--;
             }else{
-                R--;
+                left++;
             }
         }
-        return new int [] {-1,-1};
+        
+        return new int[0];
     }
 }
