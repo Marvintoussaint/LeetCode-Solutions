@@ -1,16 +1,16 @@
 public class Solution {
-    public int[] TwoSum(int[] nums, int target) {
+    public int[] TwoSum(int[] arr, int target) {
     
-        var dic = new Dictionary<int, int>();
+              Dictionary<int,int> hm = new Dictionary<int,int>(arr.Length);
 
-            for (int i = 0; i < nums.Length; i++)
-            {
-                if (dic.ContainsKey(nums[i]))
-                    return new int[] { dic[nums[i]], i };
-                else
-                    dic[target - nums[i]] = i;
-            }
-
-            return new int[] { };
+                for(int i = 0; i < arr.Length; i++)
+                {
+                    if (hm.ContainsKey(target- arr[i]))
+                    {
+                        return new int []  {hm[target - arr[i]],i};
+                    }
+                    hm[arr[i]] = i;
+                }
+                return new int [] {-1,-1};
         }
     }
