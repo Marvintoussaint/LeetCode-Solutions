@@ -1,11 +1,15 @@
 class Solution {
     public int longestOnes(int[] nums, int k) {
+   
+             int n = nums.length; 
+        
+        if(n < 2 && 0 < k) return n;
         
         int L = 0;
         
         int R = 0;
         
-        int n = nums.length;
+   
         
         int maxLength = Integer.MIN_VALUE;
         
