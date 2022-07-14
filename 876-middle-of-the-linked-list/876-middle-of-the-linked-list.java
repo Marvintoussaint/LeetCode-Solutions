@@ -10,33 +10,19 @@
  */
 class Solution {
     public ListNode middleNode(ListNode head) {
-         
-        ListNode a_pointer = head;
-        ListNode b_pointer = head;
+    
+        ListNode slow = head;
         
-        int counter = 0;
+        ListNode fast = head;
         
-        int mid = 0;
-
-        // get length of the linked list
-        
-        while(a_pointer != null)
+        while(fast != null && fast.next != null)
         {
-            counter++;
+            slow = slow.next;
             
-            a_pointer = a_pointer.next;
+            fast = fast.next.next;
         }
         
-       
-        mid = counter / 2 ;
-        
-        for(int i = 0; i < mid ; i++)
-        {
-            b_pointer = b_pointer.next;
-        }
-        
-        
-        return b_pointer;    
+        return slow;
 }
     
     
